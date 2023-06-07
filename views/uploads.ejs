@@ -1,0 +1,32 @@
+<%- include('../views/partials/header.ejs') %>
+    
+<div class="container">
+    <div class="row">
+        <div class="col sm 6 mt-5">
+            <h2 class="alert alert-success text-center" role="alert">
+                Upload File</h2>
+
+                <form method="post" action="/student/uploadResult" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" >
+
+                      </div>
+                      <div class="form-group mb-3">
+                        <label for="photo" class="form-label">File</label>
+                        <input type="file" class="form-control" name="photo" id="photo" >
+
+                      </div>
+                      
+                      <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+        </div>
+        
+    </div>
+</div>
+
+<%- include('../views/partials/footer.ejs') %>
+
+
+
+

@@ -1,0 +1,80 @@
+<%- include('../views/partials/header.ejs') %>
+    
+<div class="container">
+    <div class="row">
+        <div class="col sm 6 mt-5">
+            <h2 class="alert alert-success text-center" role="alert">
+                Add New Student</h2>
+
+                <form method="post">
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" >
+
+                      </div>
+                      <div class="form-group mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="text" class="form-control" name="age" id="age" >
+
+                      </div>
+                      <div class="form-group mb-3">
+                        <label for="fees" class="form-label">Fees</label>
+                        <input type="text" class="form-control" name="fees" id="fees" >
+
+                      </div>
+                      <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+        </div>
+        <div class="col sm 6 mt-5">
+            <h2 class="alert alert-danger text-center" role="alert">List of Students</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Id No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Fees</th>
+                    <th scope="col">update</th>
+                    <th scope="col">delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% var i=1; %> <%# id ki value show karne ke liye%>
+                  <% data.forEach((value)=> { %> 
+                    <tr>
+                      <th scope="row"><%= i++ %></th><!--jo bhi new
+                      entry hogi tab tab id ki value bhi change hogi-->
+                      <td><%= value.name%></td>
+                      <td><%= value.age%></td>
+                      <td><%= value.fees%></td>
+                      <td>
+                      <form method="get" action="/student/edit/<%= value._id%>">
+                        <button type="submit" class="btn">
+                          <i class="fa-solid fa-pen-to-square text-info text-right"></i>
+                        </button>
+                        </form>
+                      </td>
+                      <td>
+                        <form method="post" action="/student/delete/<%= value._id%>">
+                          <button type="submit" class="btn">
+                            
+                              <i class="fa-solid fa-trash-can text-danger"></i>
+                            
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+
+                 <% }) %>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../views/partials/footer.ejs') %>
+
+
+
+
