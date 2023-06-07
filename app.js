@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended:false}));//form se post kiya hua
 //to use static files in our project we need static middleware
 app.use(express.static(path.join(process.cwd(),"public")));
 
-app.use('/',sturoutes);//load student Routes
+app.use('/student',sturoutes);//load student Routes
 
 app.set('view engine','ejs');//we need to mention which template 
 //engine we are using in our project
